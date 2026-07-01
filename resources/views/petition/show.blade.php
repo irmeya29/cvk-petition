@@ -403,24 +403,32 @@
 /* Target block */
 .target-block {
     display: flex;
-    gap: 14px;
-    background: linear-gradient(135deg, #EFF6FF 0%, #F0F9FF 100%);
-    border: 1px solid #BFDBFE;
-    border-radius: 14px;
-    padding: 20px;
+    gap: 12px;
+    background: #F8FAFC;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--blue2);
+    border-radius: 12px;
+    padding: 18px 20px;
     margin-top: 28px;
     align-items: flex-start;
+    box-shadow: none;
 }
-.target-icon { flex-shrink: 0; margin-top: 2px; line-height: 1; }
+.target-icon { flex-shrink: 0; margin-top: 2px; line-height: 1; color: var(--blue2); }
 .target-label {
     font-size: 11px;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: .8px;
-    color: var(--blue2);
+    color: #64748B;
     margin-bottom: 4px;
 }
-.target-name { font-size: 16px; font-weight: 700; color: var(--ink); }
+.target-name { font-size: 16px; font-weight: 700; color: var(--ink); line-height: 1.45; }
+.target-note {
+    margin-top: 6px;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.55;
+}
 
 /* ── SIGNATURES SIDEBAR ── */
 .sig-card {
@@ -682,7 +690,7 @@
                             id="first_name" type="text" name="first_name"
                             value="{{ old('first_name') }}"
                             autocomplete="given-name"
-                            placeholder="Marie"
+                            placeholder="Awa"
                             required>
                         @error('first_name')
                             <div class="field-error">{{ $message }}</div>
@@ -695,7 +703,7 @@
                             id="last_name" type="text" name="last_name"
                             value="{{ old('last_name') }}"
                             autocomplete="family-name"
-                            placeholder="Dupont"
+                            placeholder="Ouédraogo"
                             required>
                         @error('last_name')
                             <div class="field-error">{{ $message }}</div>
@@ -710,7 +718,7 @@
                         id="email" type="email" name="email"
                         value="{{ old('email') }}"
                         autocomplete="email"
-                        placeholder="marie.dupont@email.com"
+                        placeholder="awa.ouedraogo@email.com"
                         required>
                     @error('email')
                         <div class="field-error">{{ $message }}</div>
@@ -772,10 +780,11 @@
 
             @if($petition->target_text)
                 <div class="target-block">
-                    <div class="target-icon"><i data-lucide="target" width="24" height="24" style="color:var(--blue2)"></i></div>
+                    <div class="target-icon"><i data-lucide="send" width="21" height="21"></i></div>
                     <div>
-                        <div class="target-label">Destinataire</div>
+                        <div class="target-label">Demande adressée à</div>
                         <div class="target-name">{{ $petition->target_text }}</div>
+                        <div class="target-note">La pétition reste une démarche publique, respectueuse et centrée sur le retour de CVK dans les offres concernées.</div>
                     </div>
                 </div>
             @endif
