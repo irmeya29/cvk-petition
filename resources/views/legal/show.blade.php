@@ -78,26 +78,6 @@
     white-space: pre-line;
 }
 
-.legal-footer {
-    max-width: 860px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 24px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border);
-    font-size: 13px;
-    color: var(--muted);
-}
-.legal-footer a {
-    color: var(--blue2);
-    font-weight: 700;
-    text-decoration: underline;
-    text-underline-offset: 2px;
-}
-
 @media (max-width: 640px) {
     .legal-card { padding: 28px 20px; }
     .legal-hero { padding: 52px 0 60px; }
@@ -120,14 +100,6 @@
 <section class="legal-body">
     <div class="wrap">
         <article class="legal-card">{{ $page->content }}</article>
-
-        <div class="legal-footer">
-            <span>© {{ date('Y') }} CVK. Pétition officielle.</span>
-            <div style="display:flex;gap:20px;">
-                <a href="{{ route('legal.show', 'conditions-utilisation') }}">Conditions d'utilisation</a>
-                <a href="{{ route('legal.show', 'politique-utilisation-donnees') }}">Politique des données</a>
-            </div>
-        </div>
     </div>
 </section>
 
