@@ -68,40 +68,27 @@
         .brand {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 0;
         }
         .brand-logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
+            width: 76px;
+            height: 46px;
+            border-radius: 12px;
             overflow: hidden;
             flex-shrink: 0;
             background: var(--white);
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 16px rgba(0,0,0,.3);
+            padding: 5px;
+            box-shadow: 0 8px 22px rgba(0,0,0,.24);
         }
-        .brand-logo img { width: 100%; height: 100%; object-fit: cover; }
+        .brand-logo img { width: 100%; height: 100%; object-fit: contain; }
         .brand-logo-text {
             font-family: 'Sora', sans-serif;
             font-weight: 800;
             font-size: 16px;
             color: var(--navy);
-        }
-        .brand-name {
-            font-family: 'Sora', sans-serif;
-            font-weight: 800;
-            font-size: 18px;
-            color: var(--white);
-            letter-spacing: -.3px;
-        }
-        .brand-tag {
-            font-size: 11px;
-            font-weight: 600;
-            color: rgba(255,255,255,.5);
-            text-transform: uppercase;
-            letter-spacing: .8px;
         }
         .nav-links {
             display: flex;
@@ -185,10 +172,6 @@
                 @else
                     <span class="brand-logo-text">CVK</span>
                 @endif
-            </div>
-            <div>
-                <div class="brand-name">CVK</div>
-                <div class="brand-tag">Pétition officielle</div>
             </div>
         </a>
 

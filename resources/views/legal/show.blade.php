@@ -55,13 +55,6 @@
     letter-spacing: -1px;
     max-width: 760px;
 }
-.legal-updated {
-    margin-top: 18px;
-    font-size: 13px;
-    color: rgba(255,255,255,.44);
-    font-weight: 500;
-}
-
 .legal-body {
     padding: 64px 0 0;
 }
@@ -93,7 +86,6 @@
         <a class="legal-back" href="{{ route('petition.show') }}"><i data-lucide="arrow-left" width="15" height="15"></i> Retour à la pétition</a>
         <div class="legal-eyebrow">Mentions légales</div>
         <h1 class="legal-h1">{{ $page->title }}</h1>
-        <p class="legal-updated">Pétition officielle CVK — Tous droits réservés</p>
     </div>
 </section>
 
