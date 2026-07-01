@@ -28,6 +28,8 @@ class PetitionController extends Controller
 
     public function sign(StoreSignatureRequest $request): RedirectResponse
     {
+        $ipAddress = $request->ip();
+
         $petition = Petition::query()
             ->where('id', $request->petition_id)
             ->where('is_active', true)
@@ -39,6 +41,12 @@ class PetitionController extends Controller
                 ->with('error', 'Cette pétition est clôturée.');
         }
 
+        if ($ipAddress && $petition->signatures()->where('ip_address', $ipAddress)->exists()) {
+            return back()
+                ->withInput($request->except('email'))
+                ->with('error', 'Une signature a deja ete enregistree depuis cette connexion.');
+        }
+
         Signature::create([
             'petition_id' => $petition->id,
             'first_name' => trim($request->first_name),
@@ -48,7 +56,7 @@ class PetitionController extends Controller
             'accepted_terms' => true,
             'accepted_data_policy' => true,
             'signed_at' => now(),
-            'ip_address' => $request->ip(),
+            'ip_address' => $ipAddress,
             'user_agent' => substr((string) $request->userAgent(), 0, 1000),
         ]);
 
